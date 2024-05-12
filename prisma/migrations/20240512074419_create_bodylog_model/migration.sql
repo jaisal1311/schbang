@@ -1,0 +1,13 @@
+-- CreateTable
+CREATE TABLE `BodyLog` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `userId` INTEGER NOT NULL,
+    `weight` DOUBLE NOT NULL,
+    `height` DOUBLE NOT NULL,
+    `bicepSize` DOUBLE NOT NULL,
+    `thighSize` DOUBLE NOT NULL,
+    `bellySize` DOUBLE NOT NULL,
+    `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;

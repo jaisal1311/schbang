@@ -1,0 +1,47 @@
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+enum role {
+  user
+  admin
+}
+
+model user {
+  id         Int     @id @default(autoincrement())
+  email      String  @unique
+  firstName  String
+  lastName   String
+  isVerified Boolean @default(false)
+  password   String
+  role       role
+  resetToken String?
+}
+
+model exercise {
+  id          Int      @id @default(autoincrement())
+  userId      Int      
+  name        String
+  description String?
+  duration    Int      // In minutes
+  time        String?  // Optional time (e.g., 10:00 AM)
+  day         String?  // Optional day (e.g., Monday)
+  date        DateTime
+}
+
+model BodyLog {
+  id           Int      @id @default(autoincrement())
+  userId       Int
+  weight       Float
+  height       Float
+  bicepSize    Float
+  thighSize    Float
+  bellySize    Float
+  createdAt    DateTime @default(now())
+}
